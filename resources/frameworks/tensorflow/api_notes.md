@@ -1,0 +1,6 @@
+- tf.linagl.matmul()
+	- If you specify a_is_sparse and/or b_is_sparce, for when you have a lot of zeros, it make the multiplication even faster
+- tf.linalg.band_part()
+	- copies everything outside the diagonal matrix
+- tf.math.eisum()
+	- for batch multiplication when you want to use the second matrix to just hold the vectors or matrices to be multiplied by the first matrix. For example, you could have A (n x m) and B (m x k) so then you would have (m, k) matrix meaning k vectors of size

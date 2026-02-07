@@ -1,0 +1,2 @@
+- An alternative to KL-divergence
+- TODO: get more info from https://www.youtube.com/watch?v=8mxCNMJ7dHM&t=2517s at 44:21

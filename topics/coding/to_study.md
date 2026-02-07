@@ -1,0 +1,17 @@
+- Combinations (?)
+- Dynamic programming
+- shallow and deep copies
+- sliding window
+- two pointers
+- binary search
+- BFS and DFS
+- greedy algorithm 
+- backtracking
+- coordinate dp 
+- unique paths (minimum path sum)
+- work break
+- double sequence dp
+- longest common subsequence
+- interval dp
+- palindromic sequence
+- knapsack dp

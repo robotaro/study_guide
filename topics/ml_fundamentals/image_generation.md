@@ -1,0 +1,2 @@
+- Watch this: https://www.youtube.com/watch?v=Bd-1TX54Flg
+- https://colab.research.google.com/drive/1Jr_BzR-ZFnhOk3KTVYtLi3kBeE3g59YI?usp=drive_link
