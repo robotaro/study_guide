@@ -10,11 +10,11 @@
 
 | Topic | Status | Priority | Relevant For |
 |-------|--------|----------|--------------|
-| ML System Design | In Progress | - | Humanoid, Meta |
-| Coding / Leetcode | Not Started | - | Meta, Bumble |
-| ML Fundamentals | Not Started | - | All |
-| Statistics | Not Started | - | All |
-| Behavioral | Not Started | - | Meta |
+| ML System Design | In Progress | High | Humanoid, Meta |
+| Coding / Leetcode | Not Started | High | Meta, Bumble |
+| ML Fundamentals | Not Started | High | All |
+| Statistics | Not Started | Low | All |
+| Behavioral | Not Started | Medium | Meta |
 
 ## Repository Structure
 
@@ -46,7 +46,7 @@ study_guide/
 
 ## How to Use
 
-1. Add job descriptions to `job_descriptions/`
-2. Extract required skills and update the progress tracker
+1. Start with the [Prioritized Study Plan](checklists/study_plan.md) — work through Tier 1 first for maximum ROI
+2. Use per-company checklists before each interview: [Meta](checklists/meta_checklist.md) | [Bumble](checklists/bumble_checklist.md) | [Humanoid](checklists/humanoid_checklist.md)
 3. Study by topic, track leetcode problems by pattern
-4. Build per-company checklists before interviews
+4. Check off items as you complete them to track progress
