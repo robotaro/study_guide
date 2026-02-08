@@ -1,5 +1,0 @@
-#transformer #spatialtransformer #computervision
-
-- https://pytorch.org/tutorials/intermediate/spatial_transformer_tutorial.html
-- https://towardsdatascience.com/spatial-transformer-networks-b743c0d112be
-	- _Spatial Transformer_ modules, introduced by Max Jaderberg et al., are a popular way to increase spatial invariance of a model against spatial transformations such as translation, scaling, rotation, cropping, as well as non-rigid deformations. They can be inserted into existing convolutional architectures: either immediately following the input or in deeper layers. They achieve spatial invariance by adaptively transforming their input to a canonical, expected pose, thus leading to a better classification performance. The word adaptive indicates, that for each sample an appropriate transformation is produced, conditional on the input itself. Spatial transformers networks can be trained end-to-end using standard backpropagation.

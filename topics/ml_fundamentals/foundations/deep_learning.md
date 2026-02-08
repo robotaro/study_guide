@@ -18,11 +18,22 @@ Ways to compress a neural network
 
 ### 1.2.3 KL-Divergence and Cross Entropy
 - Kullback-Leiber Divergence (KL-Divergence) : It works out to be the -log of the probability assigned to the correct class
-\[D_{KL}=\left ( P||Q \right ) = \sum_{y}P(y)log{\frac{P(y)}{Q(y)}}\]
-- Entroy
-\[H(P)=-\sum^{n}_{i=1}P(x_{i}) log P(x_{i})\]
+
+$$
+D_{KL}=\left ( P||Q \right ) = \sum_{y}P(y)log{\frac{P(y)}{Q(y)}}
+$$
+
+- Entropy
+
+$$
+H(P)=-\sum^{n}_{i=1}P(x_{i}) log P(x_{i})
+$$
+
 - Cross Entropy
-\[H(P,Q)=H(p)+D_{KL}(P||Q)\]
+
+$$
+H(P,Q)=H(p)+D_{KL}(P||Q)
+$$
 
 ### 1.2.4 On Classifying Image using Linear Classifiers
 - Any image, before being classified, becomes a 1D vector. This destroyes any spatial information by that's how the linear classifiers require its input data vector
@@ -42,14 +53,18 @@ $$
 logit(p)=ln\frac{p}{1-p}
 $$
 
-##1.2 Norms (Distance Metrics)
+## 1.2 Norms (Distance Metrics)
 - L1 Norm : Manhattan Distance, the sum of the absolute values of a vector
 $$
 d_{1}(I_{1},I_{2}) = \sum_{}^{p} \left| I_{1}^{1} - I_{p}^{2}\right|
 $$
 
 - L2 Norm : Euclidian Distance, the sum of the squares of the values of a vector
-\[d_{2}(I_{1},I_{2}) = \sqrt{\sum_{}^{p} \left( I_{p}^{1} - I_{p}^{2}\right)^{2}}\]
+
+$$
+d_{2}(I_{1},I_{2}) = \sqrt{\sum_{}^{p} \left( I_{p}^{1} - I_{p}^{2}\right)^{2}}
+$$
+
 * **receptive Field** : Generaly speaking, it is the region of th einput space that effects a particualr unit of the network. For filters, it the actual area covered by the filter during a step of the convolution.
 
 ## 1.3 Loss-Functions
@@ -62,7 +77,11 @@ It's a term added to the final value of the loss function to prevent the mode fr
 
 Here you have the Complete loss function equal to the average loss of the function with data x, weights W and labels y, and a regularisation term of the weights with coefficient lambda:
 
-\[L(W)=\frac{1}{N}\sum_{N}^{i=1}L_{i}\left ( f\left ( x_{i}, W\right ),y_{i} \right ) + \lambda R(W)\]
+
+$$
+L(W)=\frac{1}{N}\sum_{N}^{i=1}L_{i}\left ( f\left ( x_{i}, W\right ),y_{i} \right ) + \lambda R(W)
+$$
+
 * Simple methods 
     * L1 : (Manhattan) Prefers to put all your weight on a single feature 
     * L2 : (Euclidian) Prefers to spread the weights across all features
@@ -79,8 +98,9 @@ Here you have the Complete loss function equal to the average loss of the functi
 It's a process to adjust the weights of our model in order to minimise the loss. The full loss contains the data loss and the regularisation loss
 
 ### 1.5.1 Quick recap
-- SoftMax function : $$
+- SoftMax function :
 
+$$
 L_{i}=-log(\frac{e^{y_{i}}}{\sum_{j}e^{s}j})
 $$
 * Complete Loss Function (with Regularisation of weights):  
@@ -96,20 +116,44 @@ $$
 
 In order to calculate gradients you have to look through all training samples, and if that is very large, each step would take too long. So thre are waits of reducing the need to go over of them
 
-\[L_{i}=-log(\frac{e^{y_{i}}}{\sum_{j}e^{s}j})\]
 
-* Complete Loss Function (with Regularisation of weights):  \[L=\frac{1}{N}\sum^{N}_{i=1}L_{i}+R(W)\]
+$$
+L_{i}=-log(\frac{e^{y_{i}}}{\sum_{j}e^{s}j})
+$$
+
+
+* Complete Loss Function (with Regularisation of weights):
+
+$$
+L=\frac{1}{N}\sum^{N}_{i=1}L_{i}+R(W)
+$$
 
 * Batch Gradient Descent : 
-\[L(W)=\frac{1}{N}\sum^{N}_{i=1}L_{i}(x_{i}, y_{i}, W)+\lambda R(W)\]
+
+$$
+L(W)=\frac{1}{N}\sum^{N}_{i=1}L_{i}(x_{i}, y_{i}, W)+\lambda R(W)
+$$
+
 
 #### 1.5.2.1 Stochastic Gradient Descent (SGD): 
-\[\nabla_{W}L(W)=\frac{1}{N}\sum^{N}_{i=1}\nabla_{W}L_{i}(x_{i}, y_{i}, W)+\lambda\nabla_{W}R(W)\]
+
+$$
+\nabla_{W}L(W)=\frac{1}{N}\sum^{N}_{i=1}\nabla_{W}L_{i}(x_{i}, y_{i}, W)+\lambda\nabla_{W}R(W)
+$$
+
 Think of loss as an expectation over the full distribution p_data.This is an average of the independent loss function of the samples over our data set. This full expectation over all the data now becomes a Monte-Carlo Estimation. We estimate the gradient using this monte-carlo estimation.
 
-\[L(W)=\mathbb{E}_{(x,y)~p_{data}}[P(x,y,W)] + \lambda R(W) \approx \frac{1}{N}\sum^{N}_{i=1}L_{i}(x_{i}, y_{i}, W)+\lambda R(W)\]
 
-\[\nabla_{W}L(W)=\nabla_{W}\mathbb{E}_{(x,y)~p_{data}}[P(x,y,W)] + \lambda \nabla_{W} R(W) \approx \frac{1}{N}\nabla_{W}\sum^{N}_{i=1}L_{i}(x_{i}, y_{i}, W)+\nabla_{W}R(W)\]
+$$
+L(W)=\mathbb{E}_{(x,y)~p_{data}}[P(x,y,W)] + \lambda R(W) \approx \frac{1}{N}\sum^{N}_{i=1}L_{i}(x_{i}, y_{i}, W)+\lambda R(W)
+$$
+
+
+
+$$
+\nabla_{W}L(W)=\nabla_{W}\mathbb{E}_{(x,y)~p_{data}}[P(x,y,W)] + \lambda \nabla_{W} R(W) \approx \frac{1}{N}\nabla_{W}\sum^{N}_{i=1}L_{i}(x_{i}, y_{i}, W)+\nabla_{W}R(W)
+$$
+
 
 * Hyperparameters:
     * Weight Initialisation
@@ -125,8 +169,8 @@ Think of loss as an expectation over the full distribution p_data.This is an ave
     * Neterov Momentum : You "look ahead" to the point where  updating using velocity would take us; ask "what would the gradient have been if I had taken that step witht that velocity"
 
         | SGD             | SGD + Momentum |    Nesterov Momentum   |
-        | :-------------: |:-------------: |:-------------: |  
-        |\[x_{t+1}=x_{t}-\alpha\nabla f(x_{t})\]| \[v_{t+1}=x_{t}-\rho v_{y} + \nabla f(x_{t})\]\[x_{t+1}=x_{t}-\alpha v_{t+1}\]  | \[v_{t+1}=\rho v_{t}-\alpha\nabla f(x_{t} + \rho v_{t})\]\[x_{t+1}=x_{t}+v_{t+1}\]
+        | :-------------: |:-------------: |:-------------: |
+        | $x_{t+1}=x_{t}-\alpha\nabla f(x_{t})$ | $v_{t+1}=x_{t}-\rho v_{y} + \nabla f(x_{t})$ $x_{t+1}=x_{t}-\alpha v_{t+1}$ | $v_{t+1}=\rho v_{t}-\alpha\nabla f(x_{t} + \rho v_{t})$ $x_{t+1}=x_{t}+v_{t+1}$ |
 
  * AdaGrad (Adaptive Gradient) : You keep a historical sum of squares of gradients for each dimension. "Per-Parameter learning rates" or "adaptive learning rates"
     * Limitations:
@@ -152,8 +196,8 @@ for t in range(num_steps):
 ```
 
 ### 1.6 Summary on First Order Optimisation Algorithms
- | Algorithm | Tracks first moments (Momentum) |    Tracks second moments (Adaptive Learning rate) | Leaky second moments | Bias correction for moment estimates 
-| :-------------: |:-------------: |:-------------: |:-------------: |:-------------: |  
+| Algorithm | Tracks first moments (Momentum) | Tracks second moments (Adaptive Learning rate) | Leaky second moments | Bias correction for moment estimates |
+| :-------------: |:-------------: |:-------------: |:-------------: |:-------------: |
 |SGD|no|no|no|no|
 |SGC + Momentum|**Yes**|no|no|no|
 |Nesterov|**Yes**|no|no|no|
